@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ComunicacionRayen.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ComunicacionRayen_WSFarmaciaTotem_FarmaciaTotem" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://esb.saludenred.cl:8306/FarmaciaTotem.svc</Value>
+    </Setting>
+    <Setting Name="ComunicacionRayen_WSFarmaciaTotem1_FarmaciaTotem" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://interoperabilidad.saludenred.cl:8305/FarmaciaTotem.svc</Value>
+    </Setting>
+    <Setting Name="ComunicacionRayen_WSCitas_MetodosTotemDTS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://interoperabilidad.saludenred.cl:9002/MetodosTotemDTS.svc</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

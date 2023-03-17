@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://prepplataformadeintegraciones.saludenred.cl:9002/MetodosTotemDTS.svc?xsd=xsd2" namespace="http://rayensalud.cl.TotemDTS.Entidades" />
+  <xs:element name="ObtenerCitasPaciente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://rayensalud.cl.TotemDTS.Entidades" minOccurs="0" name="parametroObtenerCitasPaciente" nillable="true" type="q1:ParametroObtenerCitasPaciente" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerCitasPacienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://rayensalud.cl.TotemDTS.Entidades" minOccurs="0" name="ObtenerCitasPacienteResult" nillable="true" type="q2:RespuestaObtenerCitasPaciente" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InformarLlegadaPaciente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://rayensalud.cl.TotemDTS.Entidades" minOccurs="0" name="parametroInformarLlegadaPaciente" nillable="true" type="q3:ParametroInformarLlegadaPaciente" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InformarLlegadaPacienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://rayensalud.cl.TotemDTS.Entidades" minOccurs="0" name="InformarLlegadaPacienteResult" nillable="true" type="q4:RespuestaInformarLlegadaPaciente" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

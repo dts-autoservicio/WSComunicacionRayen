@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RayenSalud.Integraciones.TotemFarmacia.WebService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RayenSalud.Integraciones.TotemFarmacia.WebService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ParametroGenerarTicket">
+    <xs:sequence>
+      <xs:element name="DiasTolerancia" type="xs:int" />
+      <xs:element name="IdCentro" nillable="true" type="xs:string" />
+      <xs:element name="Rut" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParametroGenerarTicket" nillable="true" type="tns:ParametroGenerarTicket" />
+  <xs:complexType name="ParametroRespuestaGenerarTicket">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EntregaTicket" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombresPaciente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimerApellidoPaciente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SegundoApellidoPaciente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Edad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Embarazo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Discapacidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RespuestaBase" nillable="true" type="tns:TypeRespuestaBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParametroRespuestaGenerarTicket" nillable="true" type="tns:ParametroRespuestaGenerarTicket" />
+  <xs:complexType name="TypeRespuestaBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TypeRespuestaBase" nillable="true" type="tns:TypeRespuestaBase" />
+</xs:schema>
