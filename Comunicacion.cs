@@ -269,16 +269,28 @@ namespace ComunicacionRayen
                 rf.SegundoApellidoPaciente = paramResponse.SegundoApellidoPaciente;
                 rf.RespuestaBase.Codigo = paramResponse.RespuestaBase.Codigo;
                 rf.RespuestaBase.Descripcion = paramResponse.RespuestaBase.Descripcion;
+                
                 Boolean esPreferente = false;
-                if (paramResponse.Edad != null || !paramResponse.Edad.Equals(""))
+                if (!string.IsNullOrEmpty(paramResponse.Edad))
+                {
                     if (int.Parse(paramResponse.Edad) >= 60)
                         esPreferente = true;
-                if (paramResponse.Embarazo != null || !paramResponse.Embarazo.Equals(""))
+                }
+                else if (!string.IsNullOrEmpty(paramResponse.Embarazo))
+                {
                     if (paramResponse.Embarazo.ToUpper().Equals("TRUE"))
                         esPreferente = true;
-                if (paramResponse.Discapacidad != null || !paramResponse.Discapacidad.Equals(""))
+                }
+                else if (!string.IsNullOrEmpty(paramResponse.Discapacidad))
+                {
                     if (paramResponse.Discapacidad.ToUpper().Equals("TRUE"))
                         esPreferente = true;
+                }
+                else if (!string.IsNullOrEmpty(paramResponse.AtencionPreferenteCuidador))
+                {
+                    if (paramResponse.AtencionPreferenteCuidador.ToUpper().Equals("TRUE"))
+                        esPreferente = true;
+                }
                 rf.EsPreferente = esPreferente;
             }
             catch (Exception ex)
