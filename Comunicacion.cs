@@ -255,12 +255,9 @@ namespace ComunicacionRayen
 
                 paramResponse = wsFarmacia.GenerarTicket(paramRequest);
 
-                log.Escribe("paramResponse : Respuesta: EntregaTicket: " + paramResponse.EntregaTicket +
+                string logRespuesta = "paramResponse : Respuesta: EntregaTicket: " + paramResponse.EntregaTicket +
                             ", Codigo: " + paramResponse.RespuestaBase.Codigo +
-                            ", Descripcion: " + paramResponse.RespuestaBase.Descripcion+
-                            ", Edad: " + paramResponse.Edad +
-                            ", Embarazo: " + paramResponse.Embarazo +
-                            ", Discapacidad: " + paramResponse.Discapacidad);
+                            ", Descripcion: " + paramResponse.RespuestaBase.Descripcion;
 
                 //Almacena data en objeto rf = respuesta farmacia, para retornar respuesta                
                 rf.EntregaTicket = paramResponse.EntregaTicket;
@@ -271,27 +268,28 @@ namespace ComunicacionRayen
                 rf.RespuestaBase.Descripcion = paramResponse.RespuestaBase.Descripcion;
                 
                 Boolean esPreferente = false;
-                if (!string.IsNullOrEmpty(paramResponse.Edad))
-                {
+                if (!string.IsNullOrEmpty(paramResponse.Edad)) {
+                    logRespuesta+= ", Edad: " + paramResponse.Edad;
                     if (int.Parse(paramResponse.Edad) >= 60)
                         esPreferente = true;
                 }
-                else if (!string.IsNullOrEmpty(paramResponse.Embarazo))
-                {
+                if (!string.IsNullOrEmpty(paramResponse.Embarazo) && !esPreferente) {
+                    logRespuesta+= ", Embarazo: " + paramResponse.Embarazo;
                     if (paramResponse.Embarazo.ToUpper().Equals("TRUE"))
                         esPreferente = true;
                 }
-                else if (!string.IsNullOrEmpty(paramResponse.Discapacidad))
-                {
+                if (!string.IsNullOrEmpty(paramResponse.Discapacidad) && !esPreferente) {
+                    logRespuesta+= ", Discapacidad: " + paramResponse.Discapacidad;
                     if (paramResponse.Discapacidad.ToUpper().Equals("TRUE"))
                         esPreferente = true;
                 }
-                else if (!string.IsNullOrEmpty(paramResponse.AtencionPreferenteCuidador))
-                {
+                if (!string.IsNullOrEmpty(paramResponse.AtencionPreferenteCuidador) && !esPreferente) {
+                    logRespuesta+= ", Atencion Preferente Cuidador: " + paramResponse.AtencionPreferenteCuidador;
                     if (paramResponse.AtencionPreferenteCuidador.ToUpper().Equals("TRUE"))
                         esPreferente = true;
                 }
                 rf.EsPreferente = esPreferente;
+                log.Escribe(logRespuesta + ", EsPreferente: " + rf.EsPreferente.ToString());
             }
             catch (Exception ex)
             {
